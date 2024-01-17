@@ -50,3 +50,16 @@ doctl apps create --spec spec.yaml
 doctl apps list
 doctl apps update APP-ID --spec=spec.yaml
 ```
+
+### Quick start with Forked Dockerfile
+
+```sh
+docker run -p 8000:8000 \
+  -e APP_APPLICATION__BASE_URL=http://127.0.0.1 \
+  anddd9527/poker-planning-server:v1.0.0
+
+docker run -p 8080:80 \
+  -e VITE_GRAPHQL_ENDPOINT=http://127.0.0.1:8000 \
+  -e VITE_GRAPHQL_WS_ENDPOINT=ws://127.0.0.1:8000 \
+  anddd9527/poker-planning:v1.0.0
+```
